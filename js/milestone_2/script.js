@@ -46,6 +46,8 @@ const app = new Vue({
                 this.error = false;
     },
 
- 
+    removeItem(i){
+      this.toDoList.splice(i, 1);
+    },
   }
 })

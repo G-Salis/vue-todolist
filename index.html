@@ -14,13 +14,20 @@
     <h1>Cose da fare</h1>
     <h4 v-if="error">inserire testo di almeno 3 caratteri</h4>
     <input
-      @keyup.enter=""
-      v-model="stringToDo.toDo" 
+      @keyup.13="insertItem"
+      v-model="stringToDo.text" 
       type="text" 
       placeholder="Add to list...">
- 
+    <ul>
+      <li v-for="(item, i) in toDoList">
+        <span :class="{'line': item.done}" 
+        @click="item.done = !item.done">{{item.text}}</span>
+        <span @click="removeItem(i)">&Cross;</span>
+      </li>
+    </ul>
+  </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/milestone_1/script.js"></script>
 </body>
 </html>
